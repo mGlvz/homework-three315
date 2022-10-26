@@ -1,10 +1,10 @@
 function changeRoute(){
     let hashTag = window.location.hash;
     let pageID = hashTag.replace("#","");
-    // console.log(hashTag + " " + pageID);
+    console.log(hashTag + " " + pageID);
     if(pageID != ""){
     $.get(`pages/${pageID}/${pageID}.html`, function(data){
-        console.log("data" + data);
+        // console.log("data" + data);
         $("#app").html(data);
     })
   }else{
@@ -32,7 +32,15 @@ function initListener(){
     });
 }
 
+function initButtonListener(){
+    $("#view").click(function(e){
+        console.log("#view");
+    });
+}
+
+
 $(document).ready(function(){
     initURLListener();
     initListener();
+    initButtonListener();
 })
